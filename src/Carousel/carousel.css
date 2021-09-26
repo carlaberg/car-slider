@@ -1,0 +1,34 @@
+.swiper {
+  width: 100%;
+}
+@media(max-width: 768px) {
+  .swiper {
+    padding-bottom: 40px;
+  }
+}
+
+.carousel-footer {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.arrow-navigation {
+  margin-left: auto;
+  display: flex;
+}
+
+.arrow-navigation button:first-child {
+  margin-right: 1rem;
+}
+
+.arrow-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid black;
+  cursor: pointer;
+}

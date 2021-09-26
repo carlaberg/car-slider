@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// @ts-ignore
+import { StyleProvider, ThemePicker } from 'vcc-ui';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StyleProvider>
+      <ThemePicker variant="light">
+        <App />
+      </ThemePicker>
+    </StyleProvider>    
   </React.StrictMode>,
   document.getElementById('root')
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

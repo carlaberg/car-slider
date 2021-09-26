@@ -4,8 +4,8 @@ describe('Movie list tests', () => {
     cy.visit('/')
   })
   it('loads movies on page load and shows them in a list', () => {
-    console.log('hello')
-    
+    console.log('test')
+
     // cy.get('.movie-list li')
     //   .should('have.length', 6)
   })

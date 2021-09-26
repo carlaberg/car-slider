@@ -43,11 +43,11 @@ function App() {
                 <Carousel>
                   {filteredCars.map((car) => {
                     return (
-                      <article key={car.id}>
+                      <article className="car-slide" key={car.id}>
                         <Flex>
                           <Block>
                             {/* @ts-ignore */}
-                            <Text extend={({ theme }) => ({
+                            <Text className="body-type" extend={({ theme }) => ({
                               color: theme.color.primitive.grey200,
                               fontWeight: theme.font.weight.medium,
                               textTransform: 'uppercase'
@@ -82,9 +82,9 @@ function App() {
                             <Inline extend={{
                               marginRight: '1rem'
                             }}>
-                              <Link href={`/learn/${car.id}`} arrow="right">Learn</Link>
+                              <Link className="learn-link" href={`/learn/${car.id}`} arrow="right">Learn</Link>
                             </Inline>
-                            <Link href={`/shop/${car.id}`} arrow="right">Shop</Link>
+                            <Link className="shop-link" href={`/shop/${car.id}`} arrow="right">Shop</Link>
                           </View>
                         </Flex>
                       </article>

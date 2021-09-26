@@ -3,58 +3,26 @@ describe('Movie list tests', () => {
     cy.loadFixtures()
     cy.visit('/')
   })
-  it('loads movies on page load and shows them in a list', () => {
-    console.log('test')
-
-    // cy.get('.movie-list li')
-    //   .should('have.length', 6)
+  it('loads cars on page load and shows them in a slider', () => {
+    cy.get('.car-slide')
+      .should('have.length', 8)
   })
 
-  // it('should sort list by year', () => {
-  //   cy.get('.dropdown-toggle').click()
-  //   cy.get('.dropdown-item').contains('Year').click()
-  //   cy.get('.movie-list li')
-  //     .first()
-  //       .should(($item) => {
-  //         expect($item.children('.episode-date')).to.contain('1977-05-25')
-  //       })
-  //   cy.get('.movie-list li')
-  //     .last()
-  //       .should(($item) => {
-  //         expect($item.children('.episode-date')).to.contain('2005-05-19')
-  //       })
-  // })
+  it('should filter cars by bodyType', () => {
+    cy.get('#vcc-ui-select-input-1').select('suv')
+    cy.get('.body-type')
+      .should('have.length', 4)
+      .then(($items) => {
+        $items.each((ix, el) => {
+          expect(el).to.contain('suv')
+        });
+      })
+  })
 
-  // it('should sort list by episode', () => {
-  //   cy.get('.dropdown-toggle').click()
-  //   cy.get('.dropdown-item').contains('Episode').click()
-  //   cy.get('.movie-list li')
-  //     .first()
-  //       .should(($item) => {
-  //         expect($item.children('.episode-number')).to.contain('1')
-  //       })
-  //   cy.get('.movie-list li')
-  //     .last()
-  //       .should(($item) => {
-  //         expect($item.children('.episode-number')).to.contain('6')
-  //       })
-  // })
-
-  // it('should filter list based on search string', () => {
-  //   cy.get('.form-control').type('The Empire strikes back')
-  //   cy.get('.movie-list li')
-  //     .should('have.length', 1)
-
-  //   cy.get('.movie-list li')
-  //     .first()
-  //       .should(($item) => {
-  //         expect($item.children('.episode-title')).to.contain('Episode V - The Empire Strikes Back')
-  //       })    
-  // })
-
-  // it('should display movie info when clicking on list item', () => {
-  //   cy.get('.episode-title').contains('Episode V - The Empire Strikes Back').parent('li').click()
-  //   cy.get('.active-movie-title')
-  //     .should('have.text', 'Episode V - The Empire Strikes Back')
-  // })
+  it('should test links to shop and learn', () => {
+    cy.get('a[href="/shop/xc90-recharge"]').click()
+    cy.url().should('include', '/shop/xc90-recharge')
+    cy.get('a[href="/learn/xc90-recharge"]').click()
+    cy.url().should('include', '/learn/xc90-recharge')
+  })
 })

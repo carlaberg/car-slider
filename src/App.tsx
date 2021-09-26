@@ -40,6 +40,8 @@ function App() {
           <Row>
             <Col>
               <Block extend={{ paddingTop: '4rem' }}>
+                {error && <div>{error.message}</div>}
+                {isLoading && <div>Loading...</div>}
                 <Carousel>
                   {filteredCars.map((car) => {
                     return (

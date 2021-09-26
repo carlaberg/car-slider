@@ -55,7 +55,7 @@ export const useApiData = (url: string) => {
         isLoading: false
       })
     }    
-
+    // eslint-disable-next-line
   }, [])
 
   return data
